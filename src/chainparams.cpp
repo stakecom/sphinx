@@ -181,9 +181,9 @@ public:
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x77).convert_to_container<std::vector<unsigned char> >(); // (**TODO**)
 
         //convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
-	vSeeds.push_back(CDNSSeedData("s1", "45.249.244.140"));
-        vSeeds.push_back(CDNSSeedData("s2", "152.32.169.75"));
-        vSeeds.push_back(CDNSSeedData("s3", "47.75.14.207"));
+	vSeeds.push_back(CDNSSeedData("s1", "s1.stakework.com"));
+        vSeeds.push_back(CDNSSeedData("s2", "s2.stakework.com"));
+        vSeeds.push_back(CDNSSeedData("s3", "s3.stakework.com"));
 
 
         fMiningRequiresPeers = true;
