@@ -196,7 +196,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04f8c457bd279e667228d38faf2032958ee80ead5ec3d04ab92eeab54ac078ea2a79a2a03dee10634123cc47ea795699bd02b6370e040b622b2f15bcc56dafc2b7";
+        strSporkKey = "04145d697d11050ea70b65dfaa901e5e2cf6f764105f5da36e4965a2b191fe30a1177578f350031c98a62e6022c5676857ccdc446f14203a3558bd7597604c6193";
         strObfuscationPoolDummyAddress = "SphinxcoinDarksendPoo1DummyAdy4viSr";
         nStartMasternodePayments = 1558696182; // GMT: Thursday, 15. February 2018 12:03:02
 
@@ -307,7 +307,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "0470e14fc60a25e0eb4f6b1fe280e4c3f9427f7bb8b38f14a0c310c2e56402bdce0f25049bf22351dc3d07f389d4d433b339d8e1b991784f11df68f50340185c1d";
+        strSporkKey = "04145d697d11050ea70b65dfaa901e5e2cf6f764105f5da36e4965a2b191fe30a1177578f350031c98a62e6022c5676857ccdc446f14203a3558bd7597604c6193";
         strObfuscationPoolDummyAddress = "TMPUBzcsHZawA32XYYDF9FHQp6icv492CV";
         nStartMasternodePayments = 1558696182; // GMT: Thursday, 15. February 2018 12:03:03
 

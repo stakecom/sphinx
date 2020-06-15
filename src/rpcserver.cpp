@@ -380,6 +380,7 @@ static const CRPCCommand vRPCCommands[] =
         {"sphx", "mnsync", &mnsync, true, true, false},
         {"sphx", "spork", &spork, true, true, false},
         {"sphx", "getpoolinfo", &getpoolinfo, true, true, false},
+	{"sphx", "makekeypair", &makekeypair, true, true, false},
 #ifdef ENABLE_WALLET
         {"sphx", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
