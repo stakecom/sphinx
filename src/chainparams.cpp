@@ -120,7 +120,7 @@ public:
         nTargetTimespanDGW = 1 * 60;                // 1 day
         nTargetSpacing = 1 * 60;                    // 1 minute
         nMaturity = 60;                             // Block maturity   
-        nMasternodeCountDrift = 20;
+        nMasternodeCountDrift = 1;
         nMaxMoneyOut = 84000000 * COIN;
 
         /** Height or Time Based Activations **/
