@@ -332,7 +332,6 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 {
-LogPrintf("MMM CheckProofOfWork %s,%d\n",hash.ToString(),nBits);
     bool fNegative;
     bool fOverflow;
     uint256 bnTarget;
