@@ -58,15 +58,14 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1034845571, // * UNIX timestamp of last checkpoint block
-    2002764,    // * total number of transactions between genesis and last checkpoint
+    0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
-    2000        // * estimated number of transactions per day after checkpoint
+    0        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-	(       1,      uint256("000000b86fdd7f2ae9e9973e73790492989113075a2d5c581495ab7bb2ad5711") ) // First block 
-	(  370000,      uint256("c2761da33448b864d880503bfd9a94961c93ecc539360e466336d13b2569142f") );// Fork March 2018
+	(       1,      uint256("000000b86fdd7f2ae9e9973e73790492989113075a2d5c581495ab7bb2ad5711") ); // First block 
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
@@ -121,8 +120,8 @@ public:
         nTargetTimespanDGW = 1 * 60;                // 1 day
         nTargetSpacing = 1 * 60;                    // 1 minute
         nMaturity = 60;                             // Block maturity   
-        nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMasternodeCountDrift = 200;
+        nMaxMoneyOut = 84000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 220;                         // PoW Phase 3 End
@@ -182,10 +181,9 @@ public:
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x77).convert_to_container<std::vector<unsigned char> >(); // (**TODO**)
 
         //convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
-	vSeeds.push_back(CDNSSeedData("s1", "s1.sphinx-coin.com"));
-        vSeeds.push_back(CDNSSeedData("s2", "s2.sphinx-coin.com"));
-        vSeeds.push_back(CDNSSeedData("s3", "s3.sphinx-coin.com"));
-	vSeeds.push_back(CDNSSeedData("m1", "m1.sphinx-coin.com"));
+	vSeeds.push_back(CDNSSeedData("s1", "45.249.244.140"));
+        vSeeds.push_back(CDNSSeedData("s2", "152.32.169.75"));
+        vSeeds.push_back(CDNSSeedData("s3", "47.75.14.207"));
 
 
         fMiningRequiresPeers = true;
