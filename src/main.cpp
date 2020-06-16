@@ -6595,6 +6595,7 @@ bool ProcessMessages(CNode* pfrom)
 
 bool SendMessages(CNode* pto, bool fSendTrickle)
 {
+LogPrintf("NNN SendMessages pto=%s\n",pto->addrName);
     {
         // Don't send anything until we get their version message
         if (pto->nVersion == 0)
@@ -6723,6 +6724,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
             vInv.reserve(pto->vInventoryToSend.size());
             vInvWait.reserve(pto->vInventoryToSend.size());
             BOOST_FOREACH (const CInv& inv, pto->vInventoryToSend) {
+LogPrintf("NNN vInventoryToSend\n");
                 if (pto->setInventoryKnown.count(inv))
                     continue;
 

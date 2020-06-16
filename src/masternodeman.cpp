@@ -726,6 +726,7 @@ void CMasternodeMan::ProcessMasternodeConnections()
 void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 {
     if (fLiteMode) return; //disable all Obfuscation/Masternode related functionality
+//FIXME akuma
     if (!masternodeSync.IsBlockchainSynced()) return;
 
     LOCK(cs_process_message);
@@ -798,11 +799,13 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         AskForMN(pfrom, mnp.vin);
 
     } else if (strCommand == "dseg") { //Get Masternode list or specific entry
+LogPrintf("MMM masternodeman processmessage dseg\n");
 
         CTxIn vin;
         vRecv >> vin;
 
         if (vin == CTxIn()) { //only should ask for this once
+LogPrintf("MMM masternodeman processmessage dseg 1\n");
             //local network
             bool isLocal = (pfrom->addr.IsRFC1918() || pfrom->addr.IsLocal());
 
@@ -821,15 +824,18 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
             }
         } //else, asking for a specific node which is ok
 
-
+LogPrintf("MMM masternodeman processmessage dseg 2\n");
         int nInvCount = 0;
 
         BOOST_FOREACH (CMasternode& mn, vMasternodes) {
+LogPrintf("MMM masternodeman processmessage dseg 3.1\n");
             if (mn.addr.IsRFC1918()) continue; //local network
-
+LogPrintf("MMM masternodeman processmessage dseg 3.2\n");
             if (mn.IsEnabled()) {
+LogPrintf("MMM masternodeman processmessage dseg 3.3\n");
                 LogPrint("masternode", "dseg - Sending Masternode entry - %s \n", mn.vin.prevout.hash.ToString());
                 if (vin == CTxIn() || vin == mn.vin) {
+LogPrintf("MMM masternodeman processmessage dseg 3.3.1\n");
                     CMasternodeBroadcast mnb = CMasternodeBroadcast(mn);
                     uint256 hash = mnb.GetHash();
                     pfrom->PushInventory(CInv(MSG_MASTERNODE_ANNOUNCE, hash));
@@ -844,8 +850,9 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
                 }
             }
         }
-
+LogPrintf("MMM masternodeman processmessage dseg 4\n");
         if (vin == CTxIn()) {
+LogPrintf("MMM masternodeman processmessage dseg 5\n");
             pfrom->PushMessage("ssc", MASTERNODE_SYNC_LIST, nInvCount);
             LogPrint("masternode", "dseg - Sent %d Masternode entries to peer %i\n", nInvCount, pfrom->GetId());
         }

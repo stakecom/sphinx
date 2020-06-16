@@ -183,7 +183,7 @@ std::string CMasternodeSync::GetSyncStatus()
 
 void CMasternodeSync::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 {
-LogPrintf("MMM CMasternodeSync::ProcessMessage strCommand = %s\n",strCommand);
+LogPrintf("MMM CMasternodeSync::ProcessMessage strCommand = %s, pfrom = %s\n",strCommand,pfrom->addrName);
     if (strCommand == "ssc") { //Sync status count
         int nItemID;
         int nCount;
@@ -194,7 +194,7 @@ LogPrintf("MMM CMasternodeSync::ProcessMessage strCommand = %s\n",strCommand);
         //this means we will receive no further communication
         switch (nItemID) {
         case (MASTERNODE_SYNC_LIST):
-LogPrintf("MMM CMasternodeSync::ProcessMessage nItemID =%d ,countMasternodeList=%d,RequestedMasternodeAssets=%d",nItemID,countMasternodeList,RequestedMasternodeAssets);
+LogPrintf("MMM CMasternodeSync::ProcessMessage nItemID =%d ,countMasternodeList=%d,RequestedMasternodeAssets=%d\n",nItemID,countMasternodeList,RequestedMasternodeAssets);
             if (nItemID != RequestedMasternodeAssets) return;
             sumMasternodeList += nCount;
             countMasternodeList++;
